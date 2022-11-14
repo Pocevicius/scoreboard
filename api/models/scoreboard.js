@@ -1,8 +1,10 @@
 const mongoose = require("mongoose");
 
-const scoreboardSchema = mongoose.Schema({
+const ScoreboardSchema = mongoose.Schema({
   name: { type: String, required: true, min: 3 },
-  dataCreated: { type: new Date(), required: true },
-  results_ids: { type: Array, required: false },
-  scoreDirection: { type: String, required: true },
+  dataCreated: { type: String, required: true },
+  results_ids: { type: Array },
+  scoreDirection: { type: String },
 });
+
+module.exports = mongoose.model("scoreboard", ScoreboardSchema);

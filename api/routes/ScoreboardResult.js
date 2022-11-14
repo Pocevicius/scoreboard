@@ -7,7 +7,7 @@ const {
   GET_RESULTS_BY_SCOREBOARD_ID,
 } = require("../controllers/ScoreboardResults");
 
-router.post("/createScore", "ASC", CREATE_SCORE);
+router.post("/createScore", CREATE_SCORE);
 
 router.put("/editTitle:id", EDIT_TITLE);
 
