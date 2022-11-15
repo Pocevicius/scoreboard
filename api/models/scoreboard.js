@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const ScoreboardSchema = mongoose.Schema({
   name: { type: String, required: true, min: 3 },
-  dataCreated: { type: String, required: true },
+  dataCreated: { type: Date },
   results_ids: { type: Array },
   scoreDirection: { type: String },
 });

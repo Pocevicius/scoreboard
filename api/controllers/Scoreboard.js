@@ -1,13 +1,15 @@
+const { find } = require("../models/scoreboard");
 const ScoreboardSchema = require("../models/scoreboard");
-const ObjectId = require("mongoose").Types.ObjectId;
 
 module.exports.CREATE_SCOREBOARD = function (req, res) {
   const scoreboard = new ScoreboardSchema({
     name: req.body.name,
-    dataCreated: req.Date(),
-    scoreDirection: "ASC",
+    dataCreated: new Date(),
+    scoreDirection: req.body.scoreDirection,
     results_ids: [],
   });
+
+  console.log(scoreboard);
 
   scoreboard.save().then((result) => {
     return res
@@ -23,19 +25,25 @@ module.exports.EDIT_SCOREBOARD_NAME = (req, res) => {
   ).then((result) => {
     return res
       .status(200)
-      .json({ statusMessage: "Name edited successfully", editedName: result });
+      .json({ statusMessage: "Name edited successfully", name: result });
   });
 };
 
 module.exports.EDIT_SCOREBOARD_DIRECTION = (req, res) => {
-  ScoreboardSchema.updateOne(
-    { _id: req.params.id },
-    { scoreDirection: req.body.editedDirection }
-  ).then((result) => {
-    return res.status(200).json({
-      statusMessage: "Direction edited successfully",
-      editedDirection: result,
-    });
+  var title = ScoreboardSchema.scoreDirection;
+  switch (title) {
+    case "ASC":
+      console.log(title);
+      break;
+    case "DESC":
+      console.log(title, -1);
+      break;
+    default:
+      console.log(title, 1);
+  }
+  return res.status(200).json({
+    statusMessage: "Direction changed successfully",
+    scoreDirection: title,
   });
 };
 

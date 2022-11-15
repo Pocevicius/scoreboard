@@ -9,10 +9,10 @@ const {
 
 router.post("/createScore", CREATE_SCORE);
 
-router.put("/editTitle:id", EDIT_TITLE);
+router.put("/editTitle/:id", EDIT_TITLE);
 
 router.get("/getAllResults", GET_ALL_RESULTS);
 
-router.get("/getAllResultsByScoreboardId", GET_RESULTS_BY_SCOREBOARD_ID);
+router.get("/getAllResultsByScoreboardId/:id", GET_RESULTS_BY_SCOREBOARD_ID);
 
 module.exports = router;
