@@ -41,9 +41,9 @@ module.exports.GET_ALL_RESULTS = function (_req, res) {
 };
 
 module.exports.GET_RESULTS_BY_SCOREBOARD_ID = function (req, res) {
-  ScoreboardResultSchema.find({ scoreboardId: "xxxxxx" });
-
-  ScoreboardSchema.findOne({ _id: req.params.id }).then((results) => {
-    return res.status(200).json({ results: results });
-  });
+  ScoreboardResultSchema.find({ scoreboardId: req.params.id }).then(
+    (results) => {
+      return res.status(200).json({ results: results });
+    }
+  );
 };

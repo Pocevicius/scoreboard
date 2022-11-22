@@ -12,7 +12,7 @@ router.post("/createScoreboard", CREATE_SCOREBOARD);
 
 router.put("/editScoreboardName/:id", EDIT_SCOREBOARD_NAME);
 
-router.put("/editScoreboardDirection/", EDIT_SCOREBOARD_DIRECTION);
+router.put("/editScoreboardDirection/:id", EDIT_SCOREBOARD_DIRECTION);
 
 router.get("/getAllScoreboards", GET_ALL_SCOREBOARDS);
 

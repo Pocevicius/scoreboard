@@ -29,20 +29,23 @@ module.exports.EDIT_SCOREBOARD_NAME = (req, res) => {
   });
 };
 
-module.exports.EDIT_SCOREBOARD_DIRECTION = (req, res) => {
-  var title = ScoreboardSchema.scoreDirection;
-  switch (value) {
-    case "ASC":
-      value;
-      break;
-    case "DESC":
-      value;
-      break;
-    default:
+module.exports.EDIT_SCOREBOARD_DIRECTION = async (req, res) => {
+  var nr = 0;
+  const currentScoreboard = await ScoreboardSchema.findOne({
+    _id: req.params.id,
+  }).exec();
+
+  if (currentScoreboard.scoreDirection === "ASC") {
+    nr = 1;
+  } else {
+    nr = -1;
   }
+  ScoreboardSchema.find({ scoreboard_id: req.params.id })
+    .sort({ ScoreboardSchema: points })
+    .then(result);
   return res.status(200).json({
     statusMessage: "Direction changed successfully",
-    scoreDirection: title,
+    result: result,
   });
 };
 

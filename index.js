@@ -15,7 +15,7 @@ mongoose
   .connect(process.env.MONGO_CONNECTION, { useNewUrlParser: true })
   .then(console.log("connected"))
   .catch((err) => {
-    console.log("xxxxxxxxxxxxxxxxxx");
+    console.log("you are fucked");
     console.log(err);
   });
 
