@@ -31,15 +31,14 @@ module.exports.EDIT_SCOREBOARD_NAME = (req, res) => {
 
 module.exports.EDIT_SCOREBOARD_DIRECTION = (req, res) => {
   var title = ScoreboardSchema.scoreDirection;
-  switch (title) {
+  switch (value) {
     case "ASC":
-      console.log(title);
+      value;
       break;
     case "DESC":
-      console.log(title, -1);
+      value;
       break;
     default:
-      console.log(title, 1);
   }
   return res.status(200).json({
     statusMessage: "Direction changed successfully",
